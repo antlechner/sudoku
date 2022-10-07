@@ -149,8 +149,7 @@ object Sudoku {
   //   9 => (7, 7)
   def fieldsInSquare(square: Int): Seq[Field] = {
     val start = Field(((square - 1) / root) * root + 1, ((square - 1) % root)  * root + 1)
-    Seq(start, start.right(), start.right().right(),
-      start.down(), start.down().right(), start.down().right().right(),
-      start.down().down(), start.down().down().right(), start.down().down().right().right()) // TODO generalise to != 3
+    val leftmostFields = Seq.fill(root)(start).zipWithIndex.map{ case (field, index) => Field(field.row + index, field.column) }
+    leftmostFields.flatMap(leftField => Seq.fill(root)(leftField).zipWithIndex.map{ case (field, index) => Field(field.row, field.column + index) } )
   }
 }

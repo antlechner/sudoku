@@ -13,6 +13,7 @@ object Main {
     println(formula.toMinisat())
 
     // TODO Use command-line args instead of commenting out sections of this function
+    //   Or use a Java library for MiniSAT or another solver
 //    val solutionFromMinisat = Source.fromFile("example-output").getLines().toSeq
 //    val solvedSudoku = Result.resultFromMinisat(solutionFromMinisat.head, solutionFromMinisat(1))
 //    solvedSudoku.foreach(println)
